@@ -1,0 +1,10 @@
+---
+- name: copying a file
+  hosts: allservers
+  tasks:
+  - name: copying cal2025
+    become: true
+    copy:
+      src: /home/student/ANSIBLE/adhoc/cal2025.txt
+      dest: /tmp
+      mode: '0777'

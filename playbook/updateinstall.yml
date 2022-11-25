@@ -1,0 +1,12 @@
+- name: updateing
+  hosts: allservers
+  tasks:
+    - name: updatingg
+      apt:
+        update_cache: yes
+    - name: installing
+      dnf:
+        name: vim
+
+
+      

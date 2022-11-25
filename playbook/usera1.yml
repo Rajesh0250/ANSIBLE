@@ -1,0 +1,7 @@
+- name: adding nopass
+  hosts: allservers
+  tasks:
+  - name: adding nopass to file
+    copy:
+     dest: /etc/sudoers.d/a1pass
+     content: "a1pass ALL=(ALL) NOPASSWD: ALL"

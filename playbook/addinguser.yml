@@ -1,0 +1,9 @@
+- name: creating user
+  hosts: webservers
+  tasks:
+    - name: Add the user 'john' with a specific uid and a primary group of 'sudo'
+      user:
+        name: john
+        comment: John Doe
+        uid: 10400
+        group: sudo
