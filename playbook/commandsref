@@ -1,0 +1,2 @@
+ansible-playbook playbook1.yml
+ansible-playbook fileplaybook.yml
