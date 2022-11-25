@@ -10,3 +10,20 @@ ansible usaservers --list-hosts
 ansible prodservers --list-hosts
 ansible serversgroup --list-hosts
 ansible --help
+
+#connect to remote systems
+ping -c 3 10.0.1.36
+ssh student@10.0.1.36
+
+#on the remote system
+apt update
+apt install openssh-serversgroup
+systemctl status sshd
+ufw status
+
+sudo apt install sshpass
+#make sure student is able to login through key based 
+ssh-copy-id student@x/y
+ansible myservers -m ping
+
+

@@ -4,17 +4,6 @@
 [webservers]
 10.0.1.35
 
-[dbservers]
+[allservers]
+10.0.1.35
 10.0.1.36
-
-[prodservers]
-10.0.1.[101:105]
-
-[usaservers]
-uswebservers[1:5]
-
-[mailserver]
-mail.tcs.com
-
-[myservers]
-10.0.1.[35:36] 
