@@ -41,3 +41,8 @@ ansible atlanta -m shell -a uptime
 #rename your second system as ubuNN
 hostname set-hostname ubuNN
 ansible dbservers -m shell -a "hostnamectl set-hostname ubun74"
+
+#to copy
+ansible myservers -m copy -a "src=cal2025.txt dest=/tmp"
+#to install
+ansible dbservers -m apt -a "name=vim state=present"

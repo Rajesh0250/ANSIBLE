@@ -5,7 +5,7 @@
       apt:
         update_cache: yes
     - name: installing
-      dnf:
+      apt:
         name: vim
 
 

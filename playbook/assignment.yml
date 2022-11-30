@@ -1,0 +1,57 @@
+---
+- name: Download Tomcat8 from tomcat.apache.org
+  hosts: allservers
+  vars:
+    download_url: https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.27/bin/apache-tomcat-10.0.27.tar.gz
+  tasks:
+   - name: Download Open JDK
+     become: yes
+     apt:
+      name: openjdk-8-jre-headless
+      update_cache: yes
+      state: present
+   - name: Create the user
+     become: yes
+     user:
+        name: tomcat
+        state: present
+   - name: Create a Directory /opt/tomcat
+     become: yes
+     file:
+       path: /opt/tomcat
+       state: directory
+       mode: 0755
+       owner: tomcat
+   - name: Download Tomcat using unarchive
+     become: yes
+     unarchive:
+       src: "{{download_url}}"
+       dest: /opt/tomcat/
+       mode: 0755
+       remote_src: yes
+   #- name: Move files to the /opt/tomcat directory
+   #  become: yes
+   #  become_user: tomcat
+   #  shell: "mv /opt/tomcat/apache*/* /opt/tomcat"
+   - name: copying user.xml
+     become: true
+     copy:
+      src: /opt/tomcat/conf/tomcat-users.xml  
+      dest: /opt/tomcat/conf/
+      mode: '0777'
+   - name: copying server
+     become: true
+     copy:
+      src: /etc/systemd/system/tomcat.service
+      dest: /opt/tomcat/
+      mode: '0777'
+   - name: copying server
+     become: true
+     copy:
+      dest: /opt/tomcat/webapps/manager/META-INF/context.xml
+      
+
+
+
+
+       
