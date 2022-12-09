@@ -1,0 +1,9 @@
+[controlnode]
+10.0.1.35
+
+[webservers]
+10.0.1.36
+
+[allservers]
+10.0.1.35
+10.0.1.36
